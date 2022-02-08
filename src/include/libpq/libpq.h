@@ -67,6 +67,7 @@ extern char *ssl_ca_file;
 extern char *ssl_crl_file;
 
 extern int	secure_initialize(bool failOnError);
+extern bool secure_loaded_verify_locations(void);
 extern void secure_destroy(void);
 extern int	secure_open_server(Port *port);
 extern void secure_close(Port *port);

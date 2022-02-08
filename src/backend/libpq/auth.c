@@ -450,14 +450,10 @@ ClientAuthentication(Port *port)
          * certificate store, and the connection would have been aborted
          * already if it didn't verify ok.
          */
-#ifdef USE_SSL
 		if (!port->peer)
-		{
 			ereport(FATAL,
-					(errcode(ERRCODE_INVALID_AUTHORIZATION_SPECIFICATION),
-				  errmsg("connection requires a valid client certificate")));
-		}
-#endif
+                    (errcode(ERRCODE_INVALID_AUTHORIZATION_SPECIFICATION),
+                            errmsg("connection requires a valid client certificate")));
 	}
 
 	/*
