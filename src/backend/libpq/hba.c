@@ -878,15 +878,12 @@ parse_hba_line(List *line, int line_num, char *raw_line)
 			  errhint("Compile with --with-openssl to use SSL connections."),
 					 errcontext("line %d of configuration file \"%s\"",
 								line_num, HbaFileName)));
-			return NULL;
 #endif
 		}
-#ifdef USE_SSL
 		else if (token->string[4] == 'n')		/* "hostnossl" */
 		{
 			parsedline->conntype = ctHostNoSSL;
 		}
-#endif
 		else
 		{
 			/* "host", or "hostnossl" and SSL support not built in */
